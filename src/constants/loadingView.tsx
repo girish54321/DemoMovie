@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, StyleSheet, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
 
 export const LoadingView = () => (
   <View style={[styles.container, styles.horizontal]} >
@@ -12,6 +12,15 @@ export const LoadingMoreView = () => (
     <ActivityIndicator size="large" />
   </View>
 )
+
+
+export const EmptyScreen = (props: any) => {
+  return (
+    <View style={[styles.container, styles.horizontal]} >
+      <Text>{props.message}</Text>
+    </View>
+  )
+}
 
 export const MarginView = () => <View style={styles.loadingMore}> </View>
 

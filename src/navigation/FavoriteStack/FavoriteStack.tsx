@@ -5,11 +5,11 @@ import { Route } from "../../constants/Route";
 import { FavoriteMovieScreen } from "../../Screen/FavoriteMovieScreen/FavoriteMovieScreen";
 const HomeStack = createStackNavigator();
 
-const FavScreenStack = () => {
+const FavoriteStack = () => {
     return (
         <HomeStack.Navigator
             screenOptions={{
-                title: "Welcome",
+                title: "Favorite",
             }}
         >
             <HomeStack.Screen name={Route.FAV} component={FavoriteMovieScreen} />
@@ -18,5 +18,5 @@ const FavScreenStack = () => {
     )
 }
 
-export default FavScreenStack;
+export default FavoriteStack;
 

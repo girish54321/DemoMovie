@@ -6,7 +6,7 @@ import { addToFavoriteAction, getSelectedMovieInfo } from "../../redux/homeImage
 
 export const SelectedMovieScreen = (props: any) => {
     const appDispatch = useDispatch()
-    const selectedMovie: any = useSelector((state: any) => state.homeImageReducer.selectedMovie)
+    const selectedMovie: any = useSelector((state: any) => state.moviesReducer.selectedMovie)
 
     useEffect(() => {
         appDispatch(getSelectedMovieInfo(selectedMovie?.imdbID))
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
         height: 300,
         resizeMode: 'cover',
         marginBottom: 10,
+        borderRadius: 14,
     },
     details: {
         marginLeft: 20,

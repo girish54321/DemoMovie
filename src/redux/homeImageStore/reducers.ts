@@ -7,25 +7,37 @@ import {
   SEARCH_MOVIE_LOADING,
   SELECT_MOVIE
 } from './actionTypes'
-const initialState = {
+
+export interface MoviesReducerType {
+  isLoading: boolean,
+  totalResults: string,
+  query: string,
+  error: any,
+  movies: Array<any>,
+  page: 1,
+  selectedMovie: any,
+  favoriteMovie: Array<any>,
+}
+
+const initialState: MoviesReducerType = {
   isLoading: false,
   totalResults: "",
   query: "",
   error: null,
-  images: [],
+  movies: [],
   page: 1,
   selectedMovie: null,
   favoriteMovie: []
 }
 
-export const homeImageReducer = (state = initialState, action: any) => {
+export const moviesReducer = (state: MoviesReducerType = initialState, action: any) => {
   switch (action.type) {
     case SEARCH_MOVIE:
       let data = action.payload
       return {
         ...state,
         query: data.query,
-        images: [...state.images, ...data.images],
+        movies: [...state.movies, ...data.movies],
         totalResults: data.totalResults,
         isLoading: false,
         error: null,
@@ -39,7 +51,7 @@ export const homeImageReducer = (state = initialState, action: any) => {
         totalResults: "",
         query: "",
         error: null,
-        images: [],
+        movies: [],
         page: 1
       }
     case SEARCH_MOVIE_ERROR:

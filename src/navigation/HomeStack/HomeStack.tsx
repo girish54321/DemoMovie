@@ -33,7 +33,7 @@ const HomeScreenStack = () => {
     return (
         <HomeStack.Navigator
             screenOptions={{
-                title: "Welcome",
+                title: "Home",
             }}
         >
             <HomeStack.Screen name={Route.WELCOME} component={HomeScreen} />

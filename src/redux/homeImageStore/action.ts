@@ -13,7 +13,7 @@ import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { store } from '../../../App';
 export default (query: string) => async (dispatch: any, getState: any) => {
-  let pageNumber = getState().homeImageReducer.page;
+  let pageNumber = getState().moviesReducer.page;
   let params = {
     apikey: AppConst.API_EYE,
     s: query,
@@ -35,7 +35,7 @@ export default (query: string) => async (dispatch: any, getState: any) => {
     }
     if (response.status == 200) {
       let data = {
-        images: response.data.Search,
+        movies: response.data.Search,
         totalResults: response.data.totalResults,
         page: pageNumber + 1,
         query: query
@@ -114,16 +114,13 @@ export const loadFavMovieAction = (payload: any) => ({
 
 
 export const addToFavoriteAction = (payload: any) => async (dispatch: any, getState: any) => {
-  let data = await store.getState().homeImageReducer;
-  console.log("action.payload", data);
-  // return
+  let data = store.getState().moviesReducer;
   let array1: any = []
   if (data?.favoriteMovie?.length) {
-    array1 = [...data?.favoriteMovie, payload]
+    array1 = [payload, ...data?.favoriteMovie,]
   } else {
     array1 = [payload]
   }
-  console.log(array1);
   const jsonValue = JSON.stringify(array1);
   AsyncStorage.setItem(LOAD_FAV_MOVIE, jsonValue);
   dispatch({
