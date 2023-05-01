@@ -1,0 +1,9 @@
+
+export enum Route {
+    WELCOME = "WELCOME",
+    SELECTED_MOVIE_SCREEN = "SELECTED_MOVIE_SCREEN",
+    APPSTACK = "APPSTACK",
+    SETTINGS = "SETTINGS",
+    FAV = "FAV",
+    FAV_STACK = "FAV_STACK"
+}
