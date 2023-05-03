@@ -1,8 +1,8 @@
-import { homeImageReducer } from './homeImageStore/reducers'
+import { moviesReducer } from './moviesImageStore/reducers'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({
-  homeImageReducer,
+  moviesReducer,
 })
 
 export default rootReducer

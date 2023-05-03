@@ -4,8 +4,8 @@ import { SelectedMovieScreen } from "../../Screen/SelectedMovieScreen/SelectedMo
 import { HomeScreen } from "../../Screen/HomeScreen/HomeScreen";
 import { Route } from "../../constants/Route";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { LOAD_FAV_MOVIE } from "../../redux/homeImageStore/actionTypes";
-import { loadFavMovieAction } from "../../redux/homeImageStore/action";
+import { LOAD_FAV_MOVIE } from "../../redux/moviesImageStore/actionTypes";
+import { loadFavMovieAction } from "../../redux/moviesImageStore/action";
 import { useDispatch } from "react-redux";
 const HomeStack = createStackNavigator();
 
@@ -33,7 +33,7 @@ const HomeScreenStack = () => {
     return (
         <HomeStack.Navigator
             screenOptions={{
-                title: "Welcome",
+                title: "Home",
             }}
         >
             <HomeStack.Screen name={Route.WELCOME} component={HomeScreen} />

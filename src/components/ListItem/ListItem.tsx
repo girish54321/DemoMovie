@@ -1,6 +1,6 @@
 import React from "react";
-import { GestureResponderEvent, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { selectMovieAction } from "../../redux/homeImageStore/action";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { selectMovieAction } from "../../redux/moviesImageStore/action";
 import { navigate } from "../../navigation/NavigationService";
 import { Route } from "../../constants/Route";
 import { useDispatch } from "react-redux";
@@ -28,16 +28,20 @@ const MovieListItemStyles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: 'gray',
         margin: 8,
+        borderRadius: 14,
+        borderWidth: 1,
+        borderColor: 'gray'
     },
     poster: {
         height: 250,
         width: 180,
         resizeMode: 'cover',
+        borderRadius: 14,
     },
     details: {
-        marginLeft: 20,
+        flex: 1,
+        margin: 20
     },
     title: {
         fontSize: 18,
@@ -46,7 +50,6 @@ const MovieListItemStyles = StyleSheet.create({
     },
     year: {
         fontSize: 16,
-        color: '#888',
     },
 });
 

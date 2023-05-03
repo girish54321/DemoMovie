@@ -1,44 +1,28 @@
 
-import React, { useEffect } from "react"
+import React from "react"
 import { FlatList, StyleSheet, View } from 'react-native'
-import { useDispatch, useSelector } from "react-redux"
-import { LoadingView } from "../../constants/loadingView"
+import { useSelector } from "react-redux"
+import { EmptyScreen } from "../../constants/loadingView"
 import { MovieListItem } from "../../components/ListItem/ListItem"
-import { LOAD_FAV_MOVIE } from "../../redux/homeImageStore/actionTypes"
-import AsyncStorage from "@react-native-async-storage/async-storage"
-import { loadFavMovieAction } from "../../redux/homeImageStore/action"
 
 export const FavoriteMovieScreen = (props: any) => {
-    const appDispatch = useDispatch()
-    const data: Array<any> = useSelector((state: any) => state.homeImageReducer.favoriteMovie)
-
-
+    const data = useSelector((state: any) => state.moviesReducer.favoriteMovie)
     return (
         <View style={{ flex: 1 }}>
             <FlatList
                 keyExtractor={(item, index) => index.toString()}
                 data={data}
-                renderItem={({ item }, index: number) => {
-                    return (
-                        <MovieListItem movie={{
-                            Poster: item.Poster,
-                            Title: item.Title,
-                            Type: item.Type,
-                            Year: item.Year,
-                            imdbID: item.imdbID,
-                        }} />
-                    )
-                }}
+                ListEmptyComponent={
+                    <EmptyScreen message={"No Favorite movies yet"} />
+                }
+                renderItem={({ item }) => <MovieListItem movie={{
+                    Poster: item.Poster,
+                    Title: item.Title,
+                    Type: item.Type,
+                    Year: item.Year,
+                    imdbID: item.imdbID,
+                }} />}
             />
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
-});
