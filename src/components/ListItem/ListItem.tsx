@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { selectMovieAction } from "../../redux/homeImageStore/action";
+import { selectMovieAction } from "../../redux/moviesImageStore/action";
 import { navigate } from "../../navigation/NavigationService";
 import { Route } from "../../constants/Route";
 import { useDispatch } from "react-redux";

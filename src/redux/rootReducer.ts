@@ -1,4 +1,4 @@
-import { moviesReducer } from './homeImageStore/reducers'
+import { moviesReducer } from './moviesImageStore/reducers'
 import { combineReducers } from 'redux'
 
 const rootReducer = combineReducers({

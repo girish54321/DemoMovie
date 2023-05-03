@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import { FlatList, StyleSheet, TextInput, View } from 'react-native'
 import { useDispatch, useSelector } from "react-redux"
-import setHomeImages, { clearMovieAction } from "../../redux/homeImageStore/action"
+import setHomeImages, { clearMovieAction } from "../../redux/moviesImageStore/action"
 import { EmptyScreen, LoadingMoreView, LoadingView } from "../../constants/loadingView"
 import { MovieListItem } from "../../components/ListItem/ListItem"
 

@@ -2,7 +2,7 @@
 import React, { useEffect } from "react"
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { useDispatch, useSelector } from "react-redux"
-import { addToFavoriteAction, getSelectedMovieInfo } from "../../redux/homeImageStore/action"
+import { addToFavoriteAction, getSelectedMovieInfo } from "../../redux/moviesImageStore/action"
 
 export const SelectedMovieScreen = (props: any) => {
     const appDispatch = useDispatch()
